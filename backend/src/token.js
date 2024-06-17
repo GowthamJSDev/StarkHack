@@ -336,7 +336,7 @@ export const generateToken = async (req, res) => {
   try {
     await csvWriter.writeRecords(allItems);
     console.log("CSV file created successfully");
-    res.status(200).json({ message: "CSV file created successfully" });
+    res.status(200).json({ message: "CSV file created successfully", filePath: `https://starkhack.onrender.com/files/tokens_${tokenType}.csv` });
   } catch (error) {
     console.error("Error writing to CSV:", error);
     res.status(400).json({ message: "CSV file creation failed" });
